@@ -22,3 +22,16 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+
+        env:
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: nginx-secret
+              key: username
+
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: nginx-secret
+              key: password
